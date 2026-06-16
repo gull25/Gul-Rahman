@@ -1,0 +1,579 @@
+/* src/sections/Experience.css */
+
+.exp {
+  background: var(--surface2);
+  padding: 96px 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.exp__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Section Header ──────────────────────── */
+.exp__header {
+  text-align: center;
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.exp--visible .exp__header {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.05s;
+}
+
+.exp__label {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.exp__title {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.exp__subtitle {
+  font-size: 15px;
+  color: var(--ink3);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Content Grid ────────────────────────── */
+.exp__grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Sidebar ─────────────────────────────── */
+.exp__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 88px;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity 0.5s ease 0.15s,
+    transform 0.5s ease 0.15s;
+}
+.exp--visible .exp__sidebar {
+  opacity: 1;
+  transform: none;
+}
+
+/* Filter Buttons */
+.exp__filters {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exp__filters-label {
+  font-size: 10px;
+  color: var(--ink4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.exp__filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--ink3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.22s ease;
+  text-align: left;
+}
+.exp__filter-btn:hover {
+  background: var(--surface2);
+  color: var(--ink);
+}
+.exp__filter-btn--active {
+  background: var(--accent2);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.exp__filter-count {
+  background: var(--surface3);
+  color: var(--ink4);
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 99px;
+  font-weight: 400;
+}
+.exp__filter-btn--active .exp__filter-count {
+  background: var(--accent3);
+  color: var(--accent);
+}
+
+/* Stats Card */
+.exp__sidebar-stats {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exp__sidebar-stats-title {
+  font-size: 10px;
+  color: var(--ink4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.exp__stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.22s ease;
+}
+.exp__stat-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.exp__stat-row:hover {
+  padding-left: 4px;
+}
+
+.exp__stat-value {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent);
+  min-width: 40px;
+  letter-spacing: -0.5px;
+}
+.exp__stat-label {
+  font-size: 12px;
+  color: var(--ink3);
+  line-height: 1.4;
+}
+
+/* Skills sidebar */
+.exp__sidebar-skills {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.exp__sidebar-skills-title {
+  font-size: 10px;
+  color: var(--ink4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.exp__sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.exp__sidebar-tag {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--ink2);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  transition: all 0.22s ease;
+  cursor: default;
+}
+.exp__sidebar-tag:hover {
+  background: var(--accent2);
+  border-color: var(--accent3);
+  color: var(--accent);
+}
+
+/* ── Timeline ────────────────────────────── */
+.exp__timeline-wrap {
+  opacity: 0;
+  transform: translateX(16px);
+  transition:
+    opacity 0.5s ease 0.2s,
+    transform 0.5s ease 0.2s;
+}
+.exp--visible .exp__timeline-wrap {
+  opacity: 1;
+  transform: none;
+}
+
+.exp__timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.exp__timeline-line {
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  bottom: 32px;
+  width: 1px;
+  background: var(--border);
+}
+
+/* ── Timeline Item ───────────────────────── */
+.exp__item {
+  position: relative;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.exp__item--visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Timeline Dot */
+.exp__dot {
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface3);
+  border: 2px solid var(--border);
+  transition: all 0.22s ease;
+  z-index: 1;
+}
+.exp__dot--current {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.exp__dot--edu {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+.exp__dot-ping {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.25;
+  animation: ping 1.8s ease-in-out infinite;
+}
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ── Card ────────────────────────────────── */
+.exp__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.exp__card:hover {
+  border-color: #9ca3af;
+  transform: translateX(4px);
+}
+.exp__card--expanded {
+  border-color: var(--accent3);
+}
+.exp__card--expanded:hover {
+  border-color: var(--accent3);
+}
+.exp__item--current .exp__card {
+  border-left: 3px solid var(--accent);
+}
+
+.exp__card-top {
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.exp__card-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex: 1;
+}
+
+/* Card Icon */
+.exp__card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--surface3);
+  color: var(--ink3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+.exp__card-icon--current {
+  background: var(--accent2);
+  color: var(--accent);
+}
+.exp__card-icon--edu {
+  background: var(--green-bg);
+  color: var(--green);
+}
+.exp__card:hover .exp__card-icon {
+  transform: scale(1.06);
+}
+
+.exp__card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.exp__card-period {
+  font-size: 11px;
+  color: var(--ink4);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.exp__card-role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.exp__current-badge {
+  background: var(--accent2);
+  color: #1e40af;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.exp__card-company {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.exp__card-sep {
+  color: var(--border);
+}
+.exp__card-type {
+  color: var(--ink3);
+}
+.exp__card-location {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--ink4);
+}
+
+/* Chevron */
+.exp__chevron {
+  color: var(--ink4);
+  flex-shrink: 0;
+  margin-top: 4px;
+  transition:
+    transform 0.3s ease,
+    color 0.22s ease;
+}
+.exp__chevron--open {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* ── Expandable Body ─────────────────────── */
+.exp__card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.exp__card-body--open {
+  max-height: 400px;
+}
+
+.exp__card-body-inner {
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Description List */
+.exp__desc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp__desc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+.exp__desc-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* Tags */
+.exp__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.exp__tag {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--ink2);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  transition: all 0.22s ease;
+  cursor: default;
+}
+.exp__tag:hover {
+  background: var(--accent2);
+  border-color: var(--accent3);
+  color: var(--accent);
+}
+
+/* ── Timeline End ────────────────────────── */
+.exp__timeline-end {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.exp__timeline-end-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface3);
+  border: 2px solid var(--border);
+  position: relative;
+  left: -25px;
+  flex-shrink: 0;
+}
+
+.exp__timeline-end-label {
+  font-size: 12px;
+  color: var(--ink4);
+  font-style: italic;
+  margin-left: -14px;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 960px) {
+  .exp {
+    padding: 72px 32px;
+  }
+  .exp__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .exp__sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .exp__filters {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .exp {
+    padding: 64px 24px;
+  }
+  .exp__title {
+    font-size: 26px;
+  }
+  .exp__sidebar {
+    grid-template-columns: 1fr;
+  }
+  .exp__filters {
+    grid-column: span 1;
+  }
+  .exp__timeline {
+    padding-left: 24px;
+  }
+  .exp__card-company {
+    flex-wrap: wrap;
+  }
+}

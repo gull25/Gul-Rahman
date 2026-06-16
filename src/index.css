@@ -1,0 +1,54 @@
+/* index.css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink:        #111827;
+  --ink2:       #374151;
+  --ink3:       #6b7280;
+  --ink4:       #9ca3af;
+  --surface:    #ffffff;
+  --surface2:   #f9fafb;
+  --surface3:   #f3f4f6;
+  --border:     #e5e7eb;
+  --accent:     #1d4ed8;
+  --accent2:    #eff6ff;
+  --accent3:    #dbeafe;
+  --green:      #166534;
+  --green-bg:   #f0fdf4;
+  --green-bdr:  #bbf7d0;
+  --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --font:       'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--surface);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

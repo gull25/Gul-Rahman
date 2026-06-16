@@ -1,0 +1,355 @@
+/* src/sections/Hero.css */
+.hero {
+  min-height: 100vh;
+  padding: 120px 48px 80px;
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+/* ── Animations ──────────────────────────── */
+.hero__eyebrow,
+.hero__name,
+.hero__role,
+.hero__desc,
+.hero__actions,
+.hero__stats {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero--visible .hero__eyebrow { opacity:1; transform:none; transition-delay:0.05s; }
+.hero--visible .hero__name    { opacity:1; transform:none; transition-delay:0.15s; }
+.hero--visible .hero__role    { opacity:1; transform:none; transition-delay:0.25s; }
+.hero--visible .hero__desc    { opacity:1; transform:none; transition-delay:0.35s; }
+.hero--visible .hero__actions { opacity:1; transform:none; transition-delay:0.45s; }
+.hero--visible .hero__stats   { opacity:1; transform:none; transition-delay:0.55s; }
+
+.hero__right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+.hero--visible .hero__right {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Eyebrow ─────────────────────────────── */
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.hero__eyebrow-line {
+  width: 24px;
+  height: 1.5px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.hero__eyebrow-text {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ── Name ────────────────────────────────── */
+.hero__name {
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 10px;
+}
+.hero__name-accent {
+  color: var(--accent);
+}
+
+/* ── Role ────────────────────────────────── */
+.hero__role {
+  font-size: 18px;
+  color: var(--ink3);
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+/* ── Description ─────────────────────────── */
+.hero__desc {
+  font-size: 15px;
+  color: var(--ink3);
+  line-height: 1.85;
+  max-width: 500px;
+  margin-bottom: 36px;
+}
+
+/* ── Buttons ─────────────────────────────── */
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
+}
+
+.hero__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  transition: var(--transition);
+}
+
+.hero__btn--solid {
+  background: var(--ink);
+  color: #fff;
+}
+.hero__btn--solid:hover {
+  background: #1f2937;
+  transform: translateY(-2px);
+}
+
+.hero__btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+.hero__btn--ghost:hover {
+  background: var(--surface2);
+  border-color: #9ca3af;
+  transform: translateY(-2px);
+}
+
+/* ── Stats ───────────────────────────────── */
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.hero__stat {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.hero__stat-sep {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
+
+.hero__stat-num {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.hero__stat-lbl {
+  font-size: 12px;
+  color: var(--ink4);
+  margin-top: 4px;
+}
+
+/* ── Avatar ──────────────────────────────── */
+.hero__right {
+  flex-shrink: 0;
+}
+
+.hero__avatar-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.hero__avatar-ring {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero__avatar-ring::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px dashed var(--border);
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hero__avatar-inner {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: var(--accent2);
+  border: 2px solid var(--accent3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -1px;
+  transition: var(--transition);
+}
+.hero__avatar-inner:hover {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+/* ── Floating Cards ──────────────────────── */
+.hero__float {
+  position: absolute;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+.hero__float:hover {
+  border-color: #9ca3af;
+  transform: translateY(-3px);
+}
+
+.hero__float--bottom {
+  bottom: -10px;
+  left: -30px;
+}
+.hero__float--top {
+  top: -10px;
+  right: -20px;
+}
+
+.hero__float-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--accent2);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero__float-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.hero__float-sub {
+  font-size: 10px;
+  color: var(--ink4);
+  margin-top: 1px;
+}
+
+/* ── Availability ────────────────────────── */
+.hero__availability {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green-bg);
+  border: 1px solid var(--green-bdr);
+  border-radius: 99px;
+  padding: 7px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.hero__avail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+.hero__avail-text {
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    padding: 100px 24px 64px;
+  }
+  .hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+  }
+  .hero__desc {
+    max-width: 100%;
+  }
+  .hero__right {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__name {
+    font-size: 36px;
+  }
+  .hero__avatar-wrap {
+    width: 220px;
+    height: 220px;
+  }
+  .hero__avatar-ring {
+    width: 220px;
+    height: 220px;
+  }
+  .hero__avatar-inner {
+    width: 180px;
+    height: 180px;
+    font-size: 40px;
+  }
+}
