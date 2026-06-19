@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              Alex<span className="footer__logo-dot">.</span>
+              Gul<span className="footer__logo-dot">.</span>
             </div>
             <p className="footer__brand-desc">
               Frontend Developer building clean, accessible, and performant web
@@ -194,7 +194,7 @@ export default function Footer() {
         {/* ── Bottom Row ── */}
         <div className="footer__bottom">
           <div className="footer__copy">
-            © {year} Alex Johnson. All rights reserved.
+            © {year} Gul Rahman. All rights reserved.
           </div>
           <div className="footer__bottom-links">
             <a href="#" className="footer__bottom-link">
@@ -204,7 +204,7 @@ export default function Footer() {
               Terms of Service
             </a>
           </div>
-          <div className="footer__made-with">Built with React & ♥</div>
+          {/* <div className="footer__made-with">Built with React & ♥</div> */}
         </div>
       </div>
     </footer>

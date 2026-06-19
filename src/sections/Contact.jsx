@@ -175,8 +175,8 @@ const CONTACT_INFO = [
   {
     icon: <IconMail />,
     label: "Email",
-    value: "alex@example.com",
-    href: "mailto:alex@example.com",
+    value: "gul@example.com",
+    href: "mailto:gul@example.com",
   },
   {
     icon: <IconPhone />,
@@ -628,7 +628,7 @@ export default function Contact() {
                       type="text"
                       name="firstName"
                       className={`contact__input ${errors.firstName ? "contact__input--error" : ""}`}
-                      placeholder="Alex"
+                      placeholder="Gul"
                       value={form.firstName}
                       onChange={handleChange}
                       autoComplete="given-name"
@@ -639,7 +639,7 @@ export default function Contact() {
                       type="text"
                       name="lastName"
                       className={`contact__input ${errors.lastName ? "contact__input--error" : ""}`}
-                      placeholder="Johnson"
+                      placeholder="Rahman"
                       value={form.lastName}
                       onChange={handleChange}
                       autoComplete="family-name"
@@ -658,7 +658,7 @@ export default function Contact() {
                       type="email"
                       name="email"
                       className={`contact__input ${errors.email ? "contact__input--error" : ""}`}
-                      placeholder="alex@example.com"
+                      placeholder="gul@example.com"
                       value={form.email}
                       onChange={handleChange}
                       autoComplete="email"
