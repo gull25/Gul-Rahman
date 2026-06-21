@@ -7,9 +7,9 @@ const EXPERIENCES = [
   {
     id: 1,
     type: "work",
-    period: "Jan 2023 — Present",
+    period: "Feb 2026 — Present",
     role: "Frontend Developer",
-    company: "Horizon Digital",
+    company: "IIFA TECH",
     location: "Lahore, Pakistan",
     type_label: "Full-time",
     current: true,
