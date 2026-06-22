@@ -66,7 +66,7 @@ export default function About() {
               <div className="about__avatar-pattern" />
 
               {/* Avatar circle */}
-              <div className="about__avatar-circle">AJ</div>
+              <div className="about__avatar-circle">GR</div>
 
               {/* Name + role */}
               <div className="about__avatar-name">Gul Rahman</div>
