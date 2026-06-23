@@ -1,5 +1,6 @@
 /* src/sections/Projects.css */
 
+
 .proj {
   background: var(--surface2);
   padding: 96px 48px;
@@ -648,4 +649,35 @@
     padding: 7px 14px;
     font-size: 12px;
   }
+}
+
+.proj__api-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 16px;
+  color: var(--ink3);
+  font-size: 14px;
+}
+
+.proj__api-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.proj__api-error {
+  text-align: center;
+  padding: 48px 24px;
+  font-size: 14px;
+  color: #ef4444;
 }

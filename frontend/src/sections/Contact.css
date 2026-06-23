@@ -752,3 +752,12 @@
     grid-template-columns: 1fr;
   }
 }
+.contact__submit-error {
+  font-size: 13px;
+  color: #ef4444;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 7px;
+  padding: 10px 14px;
+  text-align: center;
+}

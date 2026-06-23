@@ -24,7 +24,9 @@
   flex-wrap: wrap;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 .blog--visible .blog__header {
   opacity: 1;
@@ -93,7 +95,9 @@
   gap: 14px;
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+  transition:
+    opacity 0.5s ease 0.1s,
+    transform 0.5s ease 0.1s;
 }
 .blog--visible .blog__controls {
   opacity: 1;
@@ -198,7 +202,9 @@
   gap: 20px;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.55s ease 0.15s, transform 0.55s ease 0.15s;
+  transition:
+    opacity 0.55s ease 0.15s,
+    transform 0.55s ease 0.15s;
 }
 .blog--visible .blog__featured-grid {
   opacity: 1;
@@ -239,11 +245,15 @@
 }
 .blog__feat-bar {
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
 }
 .blog__featured-icon {
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 .blog__featured-card:hover .blog__featured-icon {
   transform: scale(1.1);
@@ -266,7 +276,7 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--border);
   border-radius: 99px;
   padding: 3px 9px;
@@ -461,11 +471,15 @@
 }
 .blog__thumb-bar {
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
 }
 .blog__thumb-icon {
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 .blog__card:hover .blog__thumb-icon {
   transform: scale(1.1);
@@ -759,4 +773,38 @@
   .blog__newsletter {
     padding: 20px;
   }
+}
+
+/* ── API States ──────────────────────────── */
+.blog__api-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 16px;
+  color: var(--ink3);
+  font-size: 14px;
+}
+
+.blog__api-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: blog-spin 0.8s linear infinite;
+}
+
+@keyframes blog-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.blog__api-error {
+  text-align: center;
+  padding: 80px 24px;
+  font-size: 14px;
+  color: #ef4444;
 }
