@@ -146,7 +146,7 @@ function FeaturedPostCard({ post, index, visible }) {
               <IconClock /> {post.readTime}
             </span>
           </div>
-          
+          <a
             href={`/blog/${post.slug}`}
             className="blog__read-link"
             style={{ color: post.color }}
@@ -235,7 +235,7 @@ function PostCard({ post, index, visible }) {
               <IconClock /> {post.readTime}
             </span>
           </div>
-          
+          <a
             href={`/blog/${post.slug}`}
             className="blog__read-link blog__read-link--sm"
             style={{ color: post.color }}
@@ -340,24 +340,27 @@ export default function Blog() {
   }, [])
 
   // Fetch posts — re-runs when category or search changes
-  useEffect(() => {
-    setApiLoading(true)
-    setApiError(null)
+useEffect(() => {
+  const loadPosts = async () => {
+    setApiLoading(true);
+    setApiError(null);
 
-    const params = {}
-    if (activeCategory !== 'All') params.category = activeCategory
-    if (searchQuery.trim())       params.search   = searchQuery.trim()
+    const params = {};
+    if (activeCategory !== 'All') params.category = activeCategory;
+    if (searchQuery.trim()) params.search = searchQuery.trim();
 
-    fetchPosts(params)
-      .then(res => {
-        setPosts(res.data)
-        setApiLoading(false)
-      })
-      .catch(err => {
-        setApiError(err.message)
-        setApiLoading(false)
-      })
-  }, [activeCategory, searchQuery])
+    try {
+      const res = await fetchPosts(params);
+      setPosts(res.data);
+    } catch (err) {
+      setApiError(err.message);
+    } finally {
+      setApiLoading(false);
+    }
+  };
+
+  loadPosts();
+}, [activeCategory, searchQuery]);
 
   // Local filter as safety net
   const filtered = posts.filter(post => {

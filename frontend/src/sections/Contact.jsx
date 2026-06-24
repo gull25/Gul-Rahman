@@ -412,7 +412,7 @@ export default function Contact() {
                   <div className="contact__info-text">
                     <div className="contact__info-label">{item.label}</div>
                     {item.href ? (
-                      
+                      <a
                         href={item.href}
                         className="contact__info-value contact__info-value--link"
                         target={item.href.startsWith('http') ? '_blank' : undefined}
@@ -433,7 +433,7 @@ export default function Contact() {
               <div className="contact__socials-label">Find me online</div>
               <div className="contact__socials">
                 {SOCIALS.map(s => (
-                  
+                  <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
