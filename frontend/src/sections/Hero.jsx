@@ -158,7 +158,13 @@ export default function Hero() {
           <div className="hero__avatar-wrap">
             {/* Outer ring */}
             <div className="hero__avatar-ring">
-              <div className="hero__avatar-inner">GR</div>
+              <div className="hero__avatar-inner">
+                <img
+                  src="/avatar.png"
+                  alt="Gul Rahman"
+                  className="hero__avatar-img"
+                />
+              </div>
             </div>
 
             {/* Floating card — role */}

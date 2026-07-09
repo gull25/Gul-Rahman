@@ -225,10 +225,17 @@
   color: var(--accent);
   letter-spacing: -1px;
   transition: var(--transition);
+  overflow: hidden;
 }
 .hero__avatar-inner:hover {
   border-color: var(--accent);
   transform: scale(1.03);
+}
+.hero__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* ── Floating Cards ──────────────────────── */

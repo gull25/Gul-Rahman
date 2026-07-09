@@ -1,0 +1,13 @@
+{
+  "name": "gul-rahman-portfolio",
+  "version": "1.0.0",
+  "description": "Root workspace to run frontend and backend concurrently",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
+    "seed": "npm run seed --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

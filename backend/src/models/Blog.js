@@ -65,14 +65,13 @@ const blogSchema = new mongoose.Schema(
 )
 
 // Auto-generate slug from title before saving
-blogSchema.pre('save', function (next) {
+blogSchema.pre('save', function () {
   if (this.isModified('title')) {
     this.slug = this.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '')
   }
-  next()
 })
 
 module.exports = mongoose.model('Blog', blogSchema)

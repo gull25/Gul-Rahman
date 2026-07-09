@@ -100,8 +100,8 @@ const CONTACT_INFO = [
   {
     icon:  <IconMail />,
     label: 'Email',
-    value: 'alex@example.com',
-    href:  'mailto:alex@example.com',
+    value: 'gul@example.com',
+    href:  'mailto:gul@example.com',
   },
   {
     icon:  <IconPhone />,
