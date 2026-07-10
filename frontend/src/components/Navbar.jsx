@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from "react";
+import { PROFILE } from "../config/profile";
 import "./Navbar.css";
 
 const NAV_LINKS = [
@@ -39,7 +40,7 @@ export default function Navbar() {
       <nav className="navbar__inner">
         {/* Logo */}
         <div className="navbar__logo">
-          Gul<span className="navbar__dot">.</span>
+          {PROFILE.name.split(' ')[0]}<span className="navbar__dot">.</span>
         </div>
 
         {/* Desktop Links */}
@@ -59,7 +60,7 @@ export default function Navbar() {
 
         {/* Resume Button */}
         <a
-          href="/resume.pdf"
+          href={PROFILE.resume}
           target="_blank"
           rel="noopener noreferrer"
           className="navbar__resume"
@@ -128,7 +129,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href={PROFILE.resume}
             target="_blank"
             rel="noopener noreferrer"
             className="navbar__mobile-resume"

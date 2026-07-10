@@ -1,5 +1,6 @@
 // src/sections/About.jsx
 import { useEffect, useRef, useState } from "react";
+import { PROFILE } from "../config/profile";
 import "./About.css";
 
 const CHIPS = [
@@ -16,7 +17,7 @@ const CHIPS = [
 ];
 
 const INFO = [
-  { label: "Location", value: "Lahore, Pakistan", highlight: false },
+  { label: "Location", value: PROFILE.location, highlight: false },
   { label: "Experience", value: "1+ Years", highlight: false },
   { label: "Availability", value: "Open to work", highlight: true },
   { label: "Education", value: "BS Software Engineering", highlight: false },
@@ -66,11 +67,17 @@ export default function About() {
               <div className="about__avatar-pattern" />
 
               {/* Avatar circle */}
-              <div className="about__avatar-circle">GR</div>
+              <div className="about__avatar-circle">
+                <img
+                  src="/avatar.png"
+                  alt={PROFILE.name}
+                  className="about__avatar-img"
+                />
+              </div>
 
               {/* Name + role */}
-              <div className="about__avatar-name">Gul Rahman</div>
-              <div className="about__avatar-role">Frontend Developer</div>
+              <div className="about__avatar-name">{PROFILE.name}</div>
+              <div className="about__avatar-role">{PROFILE.role}</div>
 
               {/* Location row */}
               <div className="about__avatar-location">
@@ -85,7 +92,7 @@ export default function About() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                Lahore, Pakistan
+                {PROFILE.location}
               </div>
 
               {/* Divider */}
@@ -94,7 +101,7 @@ export default function About() {
               {/* Social links */}
               <div className="about__socials">
                 <a
-                  href="https://github.com"
+                  href={PROFILE.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about__social"
@@ -119,7 +126,7 @@ export default function About() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href={PROFILE.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about__social"
@@ -142,7 +149,7 @@ export default function About() {
                   </svg>
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href={PROFILE.socials.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about__social"
@@ -165,7 +172,7 @@ export default function About() {
                   </svg>
                 </a>
                 <a
-                  href="mailto:alex@example.com"
+                  href={`mailto:${PROFILE.email}`}
                   className="about__social"
                   aria-label="Email"
                 >
@@ -274,7 +281,7 @@ export default function About() {
             {/* CTA row */}
             <div className="about__cta-row">
               <a
-                href="/resume.pdf"
+                href={PROFILE.resume}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="about__cta-btn about__cta-btn--solid"

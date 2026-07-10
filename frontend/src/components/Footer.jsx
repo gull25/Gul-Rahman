@@ -1,4 +1,5 @@
 // src/components/Footer.jsx
+import { PROFILE } from "../config/profile";
 import "./Footer.css";
 
 const FOOTER_LINKS = {
@@ -12,10 +13,10 @@ const FOOTER_LINKS = {
     { label: "Contact", href: "#contact" },
   ],
   Connect: [
-    { label: "GitHub", href: "https://github.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Twitter", href: "https://twitter.com" },
-    { label: "Email", href: "mailto:alex@example.com" },
+    { label: "GitHub", href: PROFILE.socials.github },
+    { label: "LinkedIn", href: PROFILE.socials.linkedin },
+    { label: "Twitter", href: PROFILE.socials.twitter },
+    { label: "Email", href: `mailto:${PROFILE.email}` },
   ],
 };
 
@@ -40,14 +41,14 @@ export default function Footer() {
               Gul<span className="footer__logo-dot">.</span>
             </div>
             <p className="footer__brand-desc">
-              Frontend Developer building clean, accessible, and performant web
+              {PROFILE.role} building clean, accessible, and performant web
               experiences with React.
             </p>
             <div className="footer__socials">
               {[
                 {
                   label: "GitHub",
-                  href: "https://github.com",
+                  href: PROFILE.socials.github,
                   icon: (
                     <svg
                       width="16"
@@ -71,7 +72,7 @@ export default function Footer() {
                 },
                 {
                   label: "LinkedIn",
-                  href: "https://linkedin.com",
+                  href: PROFILE.socials.linkedin,
                   icon: (
                     <svg
                       width="16"
@@ -92,7 +93,7 @@ export default function Footer() {
                 },
                 {
                   label: "Twitter",
-                  href: "https://twitter.com",
+                  href: PROFILE.socials.twitter,
                   icon: (
                     <svg
                       width="16"
@@ -194,7 +195,7 @@ export default function Footer() {
         {/* ── Bottom Row ── */}
         <div className="footer__bottom">
           <div className="footer__copy">
-            © {year} Gul Rahman. All rights reserved.
+            © {year} {PROFILE.name}. All rights reserved.
           </div>
           <div className="footer__bottom-links">
             <a href="#" className="footer__bottom-link">

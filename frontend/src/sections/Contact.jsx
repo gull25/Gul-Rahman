@@ -1,6 +1,7 @@
 // src/sections/Contact.jsx
 import { useEffect, useRef, useState } from 'react'
 import { submitContactForm } from '../services/api'
+import { PROFILE } from '../config/profile'
 import './Contact.css'
 
 // ── Icons ──────────────────────────────────────────
@@ -100,20 +101,20 @@ const CONTACT_INFO = [
   {
     icon:  <IconMail />,
     label: 'Email',
-    value: 'gul@example.com',
-    href:  'mailto:gul@example.com',
+    value: PROFILE.email,
+    href:  `mailto:${PROFILE.email}`,
   },
   {
     icon:  <IconPhone />,
     label: 'Phone',
-    value: '+92 300 0000000',
-    href:  'tel:+923000000000',
+    value: PROFILE.phone.display,
+    href:  `tel:${PROFILE.phone.value}`,
   },
   {
     icon:  <IconMapPin />,
     label: 'Location',
-    value: 'Lahore, Pakistan',
-    href:  'https://maps.google.com/?q=Lahore,Pakistan',
+    value: PROFILE.location,
+    href:  PROFILE.locationMap,
   },
   {
     icon:  <IconClock />,
@@ -124,9 +125,9 @@ const CONTACT_INFO = [
 ]
 
 const SOCIALS = [
-  { icon: <IconGithub />,   label: 'GitHub',   href: 'https://github.com'   },
-  { icon: <IconLinkedin />, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: <IconTwitter />,  label: 'Twitter',  href: 'https://twitter.com'  },
+  { icon: <IconGithub />,   label: 'GitHub',   href: PROFILE.socials.github   },
+  { icon: <IconLinkedin />, label: 'LinkedIn', href: PROFILE.socials.linkedin },
+  { icon: <IconTwitter />,  label: 'Twitter',  href: PROFILE.socials.twitter  },
   { icon: <IconRss />,      label: 'Blog RSS', href: '#'                    },
 ]
 

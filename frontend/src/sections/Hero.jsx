@@ -1,5 +1,6 @@
 // src/sections/Hero.jsx
 import { useEffect, useRef, useState } from "react";
+import { PROFILE } from "../config/profile";
 import "./Hero.css";
 
 // Animated counter hook
@@ -78,12 +79,12 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="hero__eyebrow">
             <div className="hero__eyebrow-line" />
-            <span className="hero__eyebrow-text">Frontend Developer</span>
+            <span className="hero__eyebrow-text">{PROFILE.role}</span>
           </div>
 
           {/* Name */}
           <h1 className="hero__name">
-            Gul<span className="hero__name-accent">Rahman</span>
+            {PROFILE.name.split(' ')[0]}<span className="hero__name-accent">{PROFILE.name.split(' ').slice(1).join(' ')}</span>
           </h1>
 
           {/* Role */}
@@ -161,7 +162,7 @@ export default function Hero() {
               <div className="hero__avatar-inner">
                 <img
                   src="/avatar.png"
-                  alt="Gul Rahman"
+                  alt={PROFILE.name}
                   className="hero__avatar-img"
                 />
               </div>
