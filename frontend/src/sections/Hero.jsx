@@ -184,8 +184,8 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <div className="hero__float-title">React Developer</div>
-                <div className="hero__float-sub">3+ years exp</div>
+                <div className="hero__float-title">MERN Stack Developer</div>
+                <div className="hero__float-sub">1+ years exp</div>
               </div>
             </div>
 
