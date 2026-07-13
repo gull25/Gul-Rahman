@@ -52,8 +52,8 @@ export default function About() {
           <span className="about__label">About me</span>
           <h2 className="about__title">Who I am</h2>
           <p className="about__subtitle">
-            A passionate developer who loves turning ideas into reality through
-            code.
+            A passionate Web developer who loves turning ideas into reality
+            through code.
           </p>
         </div>
 
@@ -334,5 +334,3 @@ export default function About() {
     </section>
   );
 }
-
-
