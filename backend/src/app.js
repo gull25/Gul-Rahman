@@ -22,6 +22,7 @@ app.use(cors({
     process.env.CLIENT_URL,
     'http://localhost:5173',
     'http://localhost:3000',
+    'https://gul-rahman-oe3m.vercel.app',
   ],
   methods:     ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
