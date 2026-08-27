@@ -23,6 +23,7 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:3000',
     'https://gul-rahman-oe3m.vercel.app',
+    'https://gul-rahman.vercel.app',
   ],
   methods:     ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -57,6 +58,9 @@ app.get('/api/health', (req, res) => {
     version: '1.0.0',
     timestamp: new Date().toISOString(),
   })
+})
+app.get('/health', (req, res) => {
+  res.json({ status: "ok" });
 })
 
 // ── 404 handler ───────────────────────────────────
