@@ -3,6 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { fetchProjects } from "../services/api";
 import "./Projects.css";
 
+const IMAGE_BASE_URL = (
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api"
+).replace("/api", "");
+
 // ── Icons ──────────────────────────────────────────
 const IconFolder = () => (
   <svg
@@ -110,7 +114,13 @@ function ProjectCard({ project, index, visible }) {
       {/* Thumbnail */}
       <div
         className="proj__thumb"
-        style={{ background: hovered ? project.colorBg : "var(--surface3)" }}
+        style={{
+          background: project.image
+            ? `url(${IMAGE_BASE_URL}${project.image}) center/cover no-repeat`
+            : hovered
+              ? project.colorBg
+              : "var(--surface3)",
+        }}
       >
         {project.featured && (
           <div className="proj__feat-badge">
@@ -119,9 +129,12 @@ function ProjectCard({ project, index, visible }) {
         )}
         <div
           className="proj__thumb-icon"
-          style={{ color: hovered ? project.color : "var(--border)" }}
+          style={{
+            color: hovered ? project.color : "var(--border)",
+            opacity: project.image ? 0 : 1,
+          }}
         >
-          {/* Generic icon — replace with project.icon when using full icon set */}
+          {/* Generic icon */}
           <IconFolder />
         </div>
         <div className="proj__stars">
@@ -159,6 +172,22 @@ function ProjectCard({ project, index, visible }) {
 
         <h3 className="proj__title">{project.title}</h3>
         <p className="proj__desc">{project.desc}</p>
+
+        {project.features && project.features.length > 0 && (
+          <ul
+            className="proj__features"
+            style={{
+              paddingLeft: "20px",
+              fontSize: "0.85rem",
+              color: "var(--text2)",
+              marginBottom: "16px",
+            }}
+          >
+            {project.features.map((feat) => (
+              <li key={feat}>{feat}</li>
+            ))}
+          </ul>
+        )}
 
         <div className="proj__tags">
           {project.tags.map((tag) => (
@@ -198,11 +227,20 @@ function FeaturedCard({ project, index, visible }) {
       {/* Left Thumbnail */}
       <div
         className="proj__featured-thumb"
-        style={{ background: hovered ? project.colorBg : "var(--surface3)" }}
+        style={{
+          background: project.image
+            ? `url(${IMAGE_BASE_URL}${project.image}) center/cover no-repeat`
+            : hovered
+              ? project.colorBg
+              : "var(--surface3)",
+        }}
       >
         <div
           className="proj__featured-thumb-icon"
-          style={{ color: hovered ? project.color : "#d1d5db" }}
+          style={{
+            color: hovered ? project.color : "#d1d5db",
+            opacity: project.image ? 0 : 1,
+          }}
         >
           <IconFolder />
         </div>
@@ -251,6 +289,22 @@ function FeaturedCard({ project, index, visible }) {
 
         <h3 className="proj__featured-title">{project.title}</h3>
         <p className="proj__featured-desc">{project.desc}</p>
+
+        {project.features && project.features.length > 0 && (
+          <ul
+            className="proj__features"
+            style={{
+              paddingLeft: "20px",
+              fontSize: "0.9rem",
+              color: "var(--text2)",
+              marginBottom: "24px",
+            }}
+          >
+            {project.features.map((feat) => (
+              <li key={feat}>{feat}</li>
+            ))}
+          </ul>
+        )}
 
         <div className="proj__tags">
           {project.tags.map((tag) => (

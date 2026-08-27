@@ -238,9 +238,8 @@ export default function About() {
                 love to use.
               </p>
               <p className="about__bio-text">
-                When I'm not coding, you'll find me writing about frontend
-                development on my blog, contributing to open source, or
-                exploring new tools that make the web faster and more
+                When I'm not coding, you'll find me contributing to open source,
+                or exploring new tools that make the web faster and more
                 accessible.
               </p>
             </div>

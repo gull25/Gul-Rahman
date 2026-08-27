@@ -9,7 +9,7 @@ async function getProjects(req, res, next) {
     const { category, featured } = req.query
 
     // Build filter
-    const filter = { published: true }
+    const filter = { status: 'Published' }
     if (category && category !== 'all') {
       filter.category = category
     }
@@ -37,7 +37,7 @@ async function getProjectById(req, res, next) {
   try {
     const project = await Project.findById(req.params.id)
 
-    if (!project || !project.published) {
+    if (!project || project.status !== 'Published') {
       return res.status(404).json({
         success: false,
         message: 'Project not found.',
@@ -58,7 +58,33 @@ async function getProjectById(req, res, next) {
 // ── @access Private
 async function createProject(req, res, next) {
   try {
-    const project = await Project.create(req.body)
+    const projectData = { ...req.body }
+    
+    // Parse features if sent as JSON string
+    if (projectData.features && typeof projectData.features === 'string') {
+      try {
+        projectData.features = JSON.parse(projectData.features)
+      } catch (e) {
+        // If it fails, assume it's comma separated or just a string
+        projectData.features = projectData.features.split(',').map(s => s.trim())
+      }
+    }
+
+    // Parse tags if sent as JSON string
+    if (projectData.tags && typeof projectData.tags === 'string') {
+      try {
+        projectData.tags = JSON.parse(projectData.tags)
+      } catch (e) {
+        projectData.tags = projectData.tags.split(',').map(s => s.trim())
+      }
+    }
+
+    if (req.file) {
+      // Create a relative path to the public uploads folder
+      projectData.image = `/uploads/${req.file.filename}`
+    }
+
+    const project = await Project.create(projectData)
     res.status(201).json({
       success: true,
       message: 'Project created successfully.',
@@ -74,9 +100,33 @@ async function createProject(req, res, next) {
 // ── @access Private
 async function updateProject(req, res, next) {
   try {
+    const projectData = { ...req.body }
+    
+    // Parse features if sent as JSON string
+    if (projectData.features && typeof projectData.features === 'string') {
+      try {
+        projectData.features = JSON.parse(projectData.features)
+      } catch (e) {
+        projectData.features = projectData.features.split(',').map(s => s.trim())
+      }
+    }
+
+    // Parse tags if sent as JSON string
+    if (projectData.tags && typeof projectData.tags === 'string') {
+      try {
+        projectData.tags = JSON.parse(projectData.tags)
+      } catch (e) {
+        projectData.tags = projectData.tags.split(',').map(s => s.trim())
+      }
+    }
+
+    if (req.file) {
+      projectData.image = `/uploads/${req.file.filename}`
+    }
+
     const project = await Project.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      projectData,
       { new: true, runValidators: true }
     )
 

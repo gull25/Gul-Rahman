@@ -10,8 +10,7 @@ const errorHandler   = require('./middleware/errorHandler')
 // Routes
 const contactRoutes  = require('./routes/contactRoutes')
 const projectRoutes  = require('./routes/projectRoutes')
-const blogRoutes     = require('./routes/blogRoutes')
-
+const authRoutes     = require('./routes/authRoutes')
 const app = express()
 
 // ── Security headers ───────────────────────────────
@@ -41,14 +40,14 @@ if (process.env.NODE_ENV === 'development') {
 // ── Rate limiting ─────────────────────────────────
 app.use('/api', apiLimiter)
 
-// ── Static files (resume PDF) ─────────────────────
+// ── Static files ──────────────────────────────────
 app.use('/public', express.static(path.join(__dirname, '../public')))
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')))
 
 // ── API Routes ────────────────────────────────────
+app.use('/api/auth',     authRoutes)
 app.use('/api/contact',  contactRoutes)
 app.use('/api/projects', projectRoutes)
-app.use('/api/blog',     blogRoutes)
-
 // ── Health check ──────────────────────────────────
 app.get('/api/health', (req, res) => {
   res.status(200).json({

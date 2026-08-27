@@ -104,9 +104,7 @@ async function submitContact(req, res, next) {
           <p style="color:#374151;line-height:1.8;">
             In the meantime, feel free to check out my
             <a href="${process.env.CLIENT_URL}/projects"
-              style="color:#1d4ed8;">projects</a> or
-            <a href="${process.env.CLIENT_URL}/blog"
-              style="color:#1d4ed8;">blog</a>.
+              style="color:#1d4ed8;">projects</a>.
           </p>
           <p style="color:#374151;">
             Talk soon,<br/>

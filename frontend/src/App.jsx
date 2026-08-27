@@ -1,16 +1,22 @@
 // src/App.jsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
-import Blog from "./sections/Blog";
-import Contact    from './sections/Contact'
+import Contact from "./sections/Contact";
 import "./App.css";
 import Footer from "./components/Footer";
 
-export default function App() {
+// Admin Pages
+import AdminLayout from "./pages/admin/AdminLayout";
+import Login from "./pages/admin/Login";
+import ProjectList from "./pages/admin/ProjectList";
+import ProjectForm from "./pages/admin/ProjectForm";
+
+function PublicLayout() {
   return (
     <>
       <Navbar />
@@ -20,11 +26,28 @@ export default function App() {
         <Skills />
         <Experience />
         <Projects />
-        <Blog />
-        <Contact/>
-        {/* More sections will go here as we build them */}
+        <Contact />
       </main>
-      <Footer/>
+      <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PublicLayout />} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<ProjectList />} />
+          <Route path="projects" element={<ProjectList />} />
+          <Route path="projects/new" element={<ProjectForm />} />
+          <Route path="projects/:id/edit" element={<ProjectForm />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

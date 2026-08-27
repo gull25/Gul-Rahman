@@ -50,9 +50,18 @@ const projectSchema = new mongoose.Schema(
       type:    Number,
       default: 0,
     },
-    published: {
-      type:    Boolean,
-      default: true,
+    status: {
+      type:    String,
+      enum:    ['Draft', 'Published', 'Archived'],
+      default: 'Published',
+    },
+    image: {
+      type:    String,
+      default: '',
+    },
+    features: {
+      type:    [String],
+      default: [],
     },
   },
   {
