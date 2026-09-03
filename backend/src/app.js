@@ -63,6 +63,14 @@ app.get('/health', (req, res) => {
   res.json({ status: "ok" });
 })
 
+// ── Root route ────────────────────────────────────
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Welcome to the Portfolio API. The endpoints are located under /api',
+  })
+})
+
 // ── 404 handler ───────────────────────────────────
 app.use( (req, res) => {
   res.status(404).json({
