@@ -80,8 +80,7 @@ async function createProject(req, res, next) {
     }
 
     if (req.file) {
-      // Create a relative path to the public uploads folder
-      projectData.image = `/uploads/${req.file.filename}`
+      projectData.image = req.file.path
     }
 
     const project = await Project.create(projectData)
@@ -121,7 +120,7 @@ async function updateProject(req, res, next) {
     }
 
     if (req.file) {
-      projectData.image = `/uploads/${req.file.filename}`
+      projectData.image = req.file.path
     }
 
     const project = await Project.findByIdAndUpdate(
