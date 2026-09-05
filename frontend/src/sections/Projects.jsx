@@ -116,7 +116,7 @@ function ProjectCard({ project, index, visible }) {
         className="proj__thumb"
         style={{
           background: project.image
-            ? `url(${IMAGE_BASE_URL}${project.image}) center/cover no-repeat`
+            ? `url(${project.image.startsWith('http') ? project.image : IMAGE_BASE_URL + project.image}) center/cover no-repeat`
             : hovered
               ? project.colorBg
               : "var(--surface3)",
@@ -229,7 +229,7 @@ function FeaturedCard({ project, index, visible }) {
         className="proj__featured-thumb"
         style={{
           background: project.image
-            ? `url(${IMAGE_BASE_URL}${project.image}) center/cover no-repeat`
+            ? `url(${project.image.startsWith('http') ? project.image : IMAGE_BASE_URL + project.image}) center/cover no-repeat`
             : hovered
               ? project.colorBg
               : "var(--surface3)",
