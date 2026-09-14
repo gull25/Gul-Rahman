@@ -52,10 +52,10 @@
 
 /* ── Main Grid ───────────────────────────── */
 .contact__grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 48px;
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 /* ── Info Panel ──────────────────────────── */
@@ -64,7 +64,9 @@
   flex-direction: column;
   gap: 24px;
   opacity: 0;
-  transform: translateX(-16px);
+  width: 100%;
+  max-width: 600px;
+  transform: translateY(16px);
   transition: opacity 0.55s ease 0.15s,
               transform 0.55s ease 0.15s;
 }
