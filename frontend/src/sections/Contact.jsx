@@ -1,5 +1,6 @@
 // src/sections/Contact.jsx
 import { useEffect, useRef, useState } from 'react'
+import { submitContactForm } from '../services/api'
 import { PROFILE } from '../config/profile'
 import './Contact.css'
 
@@ -147,6 +148,79 @@ const BUDGET_OPTIONS = [
   'Not applicable',
 ]
 
+// ── Form Field Component ───────────────────────────
+function FormField({ label, error, required, children }) {
+  return (
+    <div className="contact__field">
+      <label className="contact__label">
+        {label}
+        {required && <span className="contact__required">*</span>}
+      </label>
+      {children}
+      {error && (
+        <span className="contact__field-error">{error}</span>
+      )}
+    </div>
+  )
+}
+
+// ── Custom Select ──────────────────────────────────
+function CustomSelect({ value, onChange, options, placeholder }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  return (
+    <div className="contact__select-wrap" ref={ref}>
+      <button
+        type="button"
+        className={`contact__select-trigger
+          ${open  ? 'contact__select-trigger--open'   : ''}
+          ${value ? 'contact__select-trigger--filled' : ''}`}
+        onClick={() => setOpen(!open)}
+      >
+        <span className={value ? '' : 'contact__select-placeholder'}>
+          {value || placeholder}
+        </span>
+        <span className={`contact__select-chevron
+          ${open ? 'contact__select-chevron--open' : ''}`}>
+          <IconChevronDown />
+        </span>
+      </button>
+
+      {open && (
+        <div className="contact__select-dropdown">
+          {options.map(opt => (
+            <button
+              key={opt}
+              type="button"
+              className={`contact__select-option
+                ${value === opt ? 'contact__select-option--active' : ''}`}
+              onClick={() => { onChange(opt); setOpen(false) }}
+            >
+              {opt}
+              {value === opt && (
+                <svg width="13" height="13" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" strokeWidth="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 // ── FAQ Item ───────────────────────────────────────
 function FaqItem({ question, answer }) {
@@ -177,7 +251,123 @@ function FaqItem({ question, answer }) {
 export default function Contact() {
   const sectionRef              = useRef(null)
   const [visible,   setVisible]   = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [loading,   setLoading]   = useState(false)
 
+  // Form state
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName:  '',
+    email:     '',
+    phone:     '',
+    subject:   '',
+    budget:    '',
+    message:   '',
+    agree:     false,
+  })
+
+  // Error state
+  const [errors, setErrors] = useState({})
+
+  // IntersectionObserver for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.08 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  // Handle all input changes
+  function handleChange(e) {
+    const { name, value, type, checked } = e.target
+    setForm(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }))
+    // Clear that field's error on change
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  // Handle custom select changes
+  function handleSelectChange(field, value) {
+    setForm(prev => ({ ...prev, [field]: value }))
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }))
+    }
+  }
+
+  // Client-side validation
+  function validate() {
+    const e = {}
+    if (!form.firstName.trim())
+      e.firstName = 'First name is required.'
+    if (!form.lastName.trim())
+      e.lastName = 'Last name is required.'
+    if (!form.email.trim())
+      e.email = 'Email is required.'
+    else if (!/\S+@\S+\.\S+/.test(form.email))
+      e.email = 'Enter a valid email address.'
+    if (!form.subject)
+      e.subject = 'Please select a subject.'
+    if (!form.message.trim())
+      e.message = 'Message is required.'
+    else if (form.message.trim().length < 20)
+      e.message = 'Message must be at least 20 characters.'
+    if (!form.agree)
+      e.agree = 'You must agree to continue.'
+    return e
+  }
+
+  // ── Submit — now calls the real backend API ────────
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    // Run client-side validation first
+    const foundErrors = validate()
+    if (Object.keys(foundErrors).length > 0) {
+      setErrors(foundErrors)
+      // Scroll to the first error field
+      const firstErrorKey = Object.keys(foundErrors)[0]
+      const el = document.querySelector(`[name="${firstErrorKey}"]`)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      return
+    }
+
+    setLoading(true)
+    // Clear any previous submit error
+    setErrors({})
+
+    try {
+      // Call the backend API
+      await submitContactForm({
+        firstName: form.firstName,
+        lastName:  form.lastName,
+        email:     form.email,
+        phone:     form.phone,
+        subject:   form.subject,
+        budget:    form.budget,
+        message:   form.message,
+      })
+
+      setLoading(false)
+      setSubmitted(true)
+
+    } catch (error) {
+      setLoading(false)
+      setErrors({
+        submit: error.message || 'Failed to send message. Please try again.',
+      })
+    }
+  }
+
+  // Character count for message
+  const msgLength  = form.message.length
+  const msgMax     = 500
+  const msgPercent = Math.min((msgLength / msgMax) * 100, 100)
 
   return (
     <section
