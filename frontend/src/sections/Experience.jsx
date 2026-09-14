@@ -7,19 +7,19 @@ const EXPERIENCES = [
   {
     id: 1,
     type: "work",
-    period: "Feb 2026 — Present",
+    period: "Feb 2023 — Present",
     role: "MERN Stack Developer",
     company: "IIFA TECH",
     location: "Lahore, Pakistan",
     type_label: "Full-time",
     current: true,
     description: [
-      "Leading the frontend of a SaaS dashboard serving 5,000+ daily active users, built with React and TypeScript.",
-      "Architected a scalable component library used across 3 product teams, reducing UI inconsistencies by 60%.",
-      "Reduced bundle size by 38% through code-splitting, lazy loading, and tree-shaking optimisations.",
-      "Mentored 2 junior developers and conducted regular code reviews to maintain code quality standards.",
+      "Developed a full-stack Online Food Ordering System with a complete admin dashboard using MongoDB, Express, React, and Node.js.",
+      "Designed and built dynamic portfolio websites to showcase projects, skills, and manage content via custom admin panels.",
+      "Integrated secure payment gateways like Stripe and managed cloud media storage using Cloudinary.",
+      "Deployed full-stack applications using platforms like Vercel, Render, and MongoDB Atlas.",
     ],
-    tags: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "REST APIs"],
+    tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Stripe"],
     icon: (
       <svg
         width="20"
