@@ -7,7 +7,7 @@ const EXPERIENCES = [
   {
     id: 1,
     type: "work",
-    period: "Feb 2023 — Present",
+    period: "Feb 2026 — Aug 2026",
     role: "MERN Stack Developer",
     company: "IIFA TECH",
     location: "Lahore, Pakistan",
@@ -37,7 +37,7 @@ const EXPERIENCES = [
   {
     id: 2,
     type: "work",
-    period: "Sep 2022 — Dec 2022",
+    period: "Sep 2024 — Dec 2024",
     role: "MERN Stack Intern",
     company: "Abasyn University",
     location: "Peshawar, Pakistan",
@@ -105,7 +105,7 @@ const EXPERIENCES = [
     description: [
       "Studied software engineering fundamentals, data structures, algorithms, and web development.",
       "Completed capstone project: a full-stack e-commerce platform built with React and Node.js.",
-      "Graduated with distinction — CGPA 3.8 / 4.0.",
+      "Graduated with distinction — CGPA 3.35 / 4.0.",
     ],
     tags: ["Data Structures", "Algorithms", "Web Dev", "OOP"],
     icon: (
