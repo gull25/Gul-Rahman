@@ -32,9 +32,8 @@ function useCounter(target, duration = 1200, start = false) {
 }
 
 const STATS = [
-  { label: "Years experience", value: 3, suffix: "+" },
-  { label: "Projects shipped", value: 24, suffix: "" },
-  { label: "Happy clients", value: 12, suffix: "" },
+  { label: "Years experience", value: 1, suffix: "" },
+  { label: "Projects shipped", value: 3, suffix: "" },
 ];
 
 export default function Hero() {
@@ -65,14 +64,12 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  const years = useCounter(3, 1200, visible);
-  const projects = useCounter(24, 1400, visible);
-  const clients = useCounter(12, 1000, visible);
+  const years = useCounter(1, 1200, visible);
+  const projects = useCounter(3, 1400, visible);
 
   const counts = [
     { ...STATS[0], count: years },
     { ...STATS[1], count: projects },
-    { ...STATS[2], count: clients },
   ];
 
   function handleScroll(href) {
@@ -107,8 +104,8 @@ export default function Hero() {
 
           {/* Description */}
           <p className="hero__desc">
-            I craft fast, responsive, and well-structured front-end interfaces
-            using React, TypeScript, and modern CSS — with a focus on clean code
+            I craft fast, responsive, and well-structured full-stack applications
+            using the MERN stack (MongoDB, Express, React, Node.js) — with a focus on clean code
             and great user experience.
           </p>
 
@@ -218,7 +215,7 @@ export default function Hero() {
               </div>
               <div>
                 <div className="hero__float-title">Top Rated</div>
-                <div className="hero__float-sub">24 projects done</div>
+                <div className="hero__float-sub">3 projects done</div>
               </div>
             </div>
 

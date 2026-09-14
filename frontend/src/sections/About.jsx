@@ -7,9 +7,9 @@ import "./About.css";
 const CHIPS = [
   "React JS",
   "TypeScript",
-  "Next.js",
+  "Express",
   "Tailwind CSS",
-  "Figma",
+  "MongoDB",
   "Git",
   "REST APIs",
   "Accessibility",
@@ -215,16 +215,12 @@ export default function About() {
             {/* Mini stat cards below avatar */}
             <div className="about__mini-stats">
               <div className="about__mini-stat">
-                <span className="about__mini-num">1+</span>
-                <span className="about__mini-lbl">Years exp</span>
+                <span className="about__mini-num">1</span>
+                <span className="about__mini-lbl">Year exp</span>
               </div>
               <div className="about__mini-stat about__mini-stat--border">
-                <span className="about__mini-num">24</span>
+                <span className="about__mini-num">3</span>
                 <span className="about__mini-lbl">Projects</span>
-              </div>
-              <div className="about__mini-stat">
-                <span className="about__mini-num">12</span>
-                <span className="about__mini-lbl">Clients</span>
               </div>
             </div>
           </div>

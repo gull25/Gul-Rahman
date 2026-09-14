@@ -125,10 +125,10 @@ const EXPERIENCES = [
 ];
 
 const STATS = [
-  { value: "3+", label: "Years of experience" },
-  { value: "3", label: "Companies worked at" },
-  { value: "24+", label: "Projects completed" },
-  { value: "80%", label: "Test coverage achieved" },
+  { value: "1", label: "Year of experience" },
+  { value: "1", label: "Company worked at" },
+  { value: "3", label: "Projects completed" },
+  { value: "100%", label: "Dedication" },
 ];
 
 // ── Timeline Item Component ────────────────────────
