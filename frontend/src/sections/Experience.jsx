@@ -12,7 +12,7 @@ const EXPERIENCES = [
     company: "IIFA TECH",
     location: "Lahore, Pakistan",
     type_label: "Full-time",
-    current: true,
+    current: false,
     description: [
       "Developed a full-stack Online Food Ordering System with a complete admin dashboard using MongoDB, Express, React, and Node.js.",
       "Designed and built dynamic portfolio websites to showcase projects, skills, and manage content via custom admin panels.",
