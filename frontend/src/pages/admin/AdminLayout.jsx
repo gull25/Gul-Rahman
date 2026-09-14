@@ -22,6 +22,7 @@ export default function AdminLayout() {
         </div>
         <nav className="admin-nav">
           <Link to="/admin/projects" className="admin-nav-link">Projects</Link>
+          <Link to="/admin/profile" className="admin-nav-link">Profile</Link>
           <a href="/" target="_blank" rel="noopener noreferrer" className="admin-nav-link">View Site</a>
           <button onClick={handleLogout} className="admin-nav-link logout-btn">Logout</button>
         </nav>

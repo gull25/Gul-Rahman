@@ -15,6 +15,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import Login from "./pages/admin/Login";
 import ProjectList from "./pages/admin/ProjectList";
 import ProjectForm from "./pages/admin/ProjectForm";
+import ProfileSettings from "./pages/admin/ProfileSettings";
 
 function PublicLayout() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="projects" element={<ProjectList />} />
           <Route path="projects/new" element={<ProjectForm />} />
           <Route path="projects/:id/edit" element={<ProjectForm />} />
+          <Route path="profile" element={<ProfileSettings />} />
         </Route>
       </Routes>
     </BrowserRouter>

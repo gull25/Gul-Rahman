@@ -73,3 +73,15 @@ export async function deleteProject(id) {
     method: 'DELETE',
   })
 }
+
+// ── Profile ────────────────────────────────────────
+export async function fetchProfile() {
+  return apiFetch('/profile')
+}
+
+export async function updateAvatar(formData) {
+  return apiFetch('/profile/avatar', {
+    method: 'PUT',
+    body: formData,
+  }, true)
+}

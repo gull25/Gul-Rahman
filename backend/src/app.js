@@ -11,6 +11,7 @@ const errorHandler   = require('./middleware/errorHandler')
 const contactRoutes  = require('./routes/contactRoutes')
 const projectRoutes  = require('./routes/projectRoutes')
 const authRoutes     = require('./routes/authRoutes')
+const profileRoutes  = require('./routes/profileRoutes')
 const app = express()
 
 // ── Security headers ───────────────────────────────
@@ -50,6 +51,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')))
 app.use('/api/auth',     authRoutes)
 app.use('/api/contact',  contactRoutes)
 app.use('/api/projects', projectRoutes)
+app.use('/api/profile',  profileRoutes)
 // ── Health check ──────────────────────────────────
 app.get('/api/health', (req, res) => {
   res.status(200).json({

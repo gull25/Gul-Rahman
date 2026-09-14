@@ -1,6 +1,7 @@
 // src/sections/About.jsx
 import { useEffect, useRef, useState } from "react";
 import { PROFILE } from "../config/profile";
+import { fetchProfile } from "../services/api";
 import "./About.css";
 
 const CHIPS = [
@@ -28,6 +29,7 @@ const INFO = [
 export default function About() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState("/avatar.png");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,6 +40,16 @@ export default function About() {
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    fetchProfile()
+      .then((data) => {
+        if (data && data.avatarUrl) {
+          setAvatarUrl(data.avatarUrl);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch profile avatar", err));
   }, []);
 
   return (
@@ -69,7 +81,7 @@ export default function About() {
               {/* Avatar circle */}
               <div className="about__avatar-circle">
                 <img
-                  src="/avatar.png"
+                  src={avatarUrl}
                   alt={PROFILE.name}
                   className="about__avatar-img"
                 />
