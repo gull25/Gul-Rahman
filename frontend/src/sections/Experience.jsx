@@ -37,19 +37,19 @@ const EXPERIENCES = [
   {
     id: 2,
     type: "work",
-    period: "Jun 2022 — Dec 2022",
-    role: "Junior MERN Stack Developer",
-    company: "NexaLabs",
-    location: "Lahore, Pakistan",
-    type_label: "Full-time",
+    period: "Sep 2022 — Dec 2022",
+    role: "MERN Stack Intern",
+    company: "Abasyn University",
+    location: "Peshawar, Pakistan",
+    type_label: "Internship",
     current: false,
     description: [
-      "Built and maintained reusable UI components for a fintech product with 10,000+ monthly users.",
-      "Collaborated closely with designers to implement pixel-perfect, accessible interfaces from Figma specs.",
-      "Wrote unit and integration tests using Jest and React Testing Library, achieving 80% code coverage.",
-      "Integrated third-party APIs including payment gateways and real-time data feeds.",
+      "Completed a 4-month internship focusing on full-stack web development.",
+      "Developed a complete MERN Stack E-commerce website from scratch.",
+      "Implemented core e-commerce features including product catalog, shopping cart, user authentication, and order management.",
+      "Gained hands-on experience working with React, Node.js, Express, and MongoDB.",
     ],
-    tags: ["React", "JavaScript", "CSS Modules", "Jest", "Figma"],
+    tags: ["React", "Node.js", "Express", "MongoDB", "E-commerce"],
     icon: (
       <svg
         width="20"
@@ -68,17 +68,17 @@ const EXPERIENCES = [
     id: 3,
     type: "work",
     period: "Jan 2022 — May 2022",
-    role: "Frontend Intern",
-    company: "Pixel Studio",
+    role: "Graphic design and freelancing",
+    company: "DigiSkills",
     location: "Remote",
-    type_label: "Internship",
+    type_label: "Freelance",
     current: false,
     description: [
-      "Developed responsive landing pages and marketing sites for 5+ client projects.",
-      "Learned React fundamentals and modern JavaScript patterns in a fast-paced agency environment.",
-      "Collaborated with senior developers via Git and participated in daily stand-ups.",
+      "Completed comprehensive training in Graphic Design and Freelancing.",
+      "Created various design projects including logos, social media posts, and branding materials.",
+      "Learned how to effectively communicate with clients and manage freelance projects.",
     ],
-    tags: ["HTML/CSS", "JavaScript", "React", "Git"],
+    tags: ["Graphic Design", "Freelancing", "Adobe Illustrator", "Photoshop"],
     icon: (
       <svg
         width="20"
