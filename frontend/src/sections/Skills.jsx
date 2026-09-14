@@ -22,8 +22,8 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
-    id:    'frameworks',
-    label: 'Frameworks',
+    id:    'backend',
+    label: 'Backend',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2">
@@ -33,10 +33,10 @@ const SKILL_CATEGORIES = [
       </svg>
     ),
     skills: [
-      { name: 'Next.js',       pct: 82 },
-      { name: 'Tailwind CSS',  pct: 90 },
-      { name: 'Redux/Zustand', pct: 78 },
-      { name: 'React Router',  pct: 88 },
+      { name: 'Express.js',    pct: 85 },
+      { name: 'Node.js',       pct: 82 },
+      { name: 'MongoDB',       pct: 88 },
+      { name: 'REST APIs',     pct: 90 },
     ],
   },
   {
@@ -52,14 +52,14 @@ const SKILL_CATEGORIES = [
     ),
     skills: [
       { name: 'Git & GitHub', pct: 85 },
-      { name: 'Figma',        pct: 72 },
-      { name: 'REST APIs',    pct: 87 },
-      { name: 'Firebase',     pct: 70 },
+      { name: 'Docker',       pct: 75 },
+      { name: 'Stripe',       pct: 80 },
+      { name: 'Vercel/Render',pct: 85 },
     ],
   },
 ]
 
-const TABS = ['All', 'Frontend', 'Tools']
+const TABS = ['All', 'Frontend', 'Backend', 'Tools']
 
 const TECH_STACK = [
   { name: 'React',      cat: 'frontend', icon: (
@@ -102,17 +102,32 @@ const TECH_STACK = [
         -1 2.5-3.5 3.5-5.5 2-1.5-1-1.5-3-3-4-1.5-1-3.5-.5-4.5 1z"/>
     </svg>
   )},
-  { name: 'Next.js', cat: 'frontend', icon: (
+  { name: 'Express', cat: 'backend', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M15 9l-6 8"/><path d="M9 9h6v4"/>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
     </svg>
   )},
-  { name: 'Redux', cat: 'frontend', icon: (
+  { name: 'Node.js', cat: 'backend', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
-      <path d="M16 3c2.5 1 4 3.5 3.5 6.5"/><path d="M8 3c-2.5 1-4 3.5-3.5 6.5"/>
-      <path d="M12 21c3 0 5.5-1.5 7-4"/><path d="M12 21c-3 0-5.5-1.5-7-4"/>
-      <circle cx="12" cy="12" r="3"/>
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+  )},
+  { name: 'MongoDB', cat: 'backend', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
+      <path d="M12 2C8 2 8 8 8 12c0 4 4 10 4 10s4-6 4-10c0-4 0-10-4-10z"/>
+    </svg>
+  )},
+  { name: 'MongoDB Atlas', cat: 'backend', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
+      <path d="M12 2C8 2 8 8 8 12c0 4 4 10 4 10s4-6 4-10c0-4 0-10-4-10z"/>
+    </svg>
+  )},
+  { name: 'REST API', cat: 'backend', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2"  y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
+        15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
     </svg>
   )},
   { name: 'Git', cat: 'tools', icon: (
@@ -130,31 +145,36 @@ const TECH_STACK = [
         3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
     </svg>
   )},
-  { name: 'Figma', cat: 'tools', icon: (
+  { name: 'Stripe', cat: 'tools', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
-      <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/>
-      <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/>
-      <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-      <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 0 1-7 0z"/>
-      <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
     </svg>
   )},
-  { name: 'Vite', cat: 'tools', icon: (
+  { name: 'Cloudinary', cat: 'tools', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
-      <path d="M13 2L4.5 17h4L12 9l3.5 8H20L13 2z"/><path d="M21 2l-8 5"/>
+      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
     </svg>
   )},
-  { name: 'Firebase', cat: 'tools', icon: (
+  { name: 'Docker', cat: 'tools', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
-      <path d="M4 20L8.5 4l4 7.5L15 7l5 13H4z"/>
+      <path d="M22 12.5a5 5 0 0 0-4-1.5c0-4-3-6.5-6-6.5S6 7 6 11a5 5 0 0 0-4 1.5C2 15 4 17 7 17h10c3 0 5-2 5-4.5Z"/>
     </svg>
   )},
-  { name: 'REST API', cat: 'tools', icon: (
+  { name: 'Vercel', cat: 'tools', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
-      <circle cx="12" cy="12" r="10"/>
-      <line x1="2"  y1="12" x2="22" y2="12"/>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
-        15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      <path d="M12 2L2 20h20L12 2z"/>
+    </svg>
+  )},
+  { name: 'Render', cat: 'tools', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
+      <rect x="3" y="3" width="18" height="18" rx="4"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+  )},
+  { name: 'Antigravity', cat: 'tools', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="22" height="22">
+      <path d="M12 2L2 12l10 10 10-10z"/>
+      <circle cx="12" cy="12" r="3"/>
     </svg>
   )},
 ]
@@ -226,6 +246,7 @@ export default function Skills() {
   const filteredTech = TECH_STACK.filter(t => {
     if (activeTab === 'All')      return true
     if (activeTab === 'Frontend') return t.cat === 'frontend'
+    if (activeTab === 'Backend')  return t.cat === 'backend'
     if (activeTab === 'Tools')    return t.cat === 'tools'
     return true
   })

@@ -11,10 +11,16 @@ const CHIPS = [
   "Tailwind CSS",
   "MongoDB",
   "Git",
+  "GitHub",
   "REST APIs",
-  "Accessibility",
-  "Redux",
   "Node.js",
+  "Stripe",
+  "Cloudinary",
+  "Docker",
+  "MongoDB Atlas",
+  "Vercel",
+  "Render",
+  "Antigravity",
 ];
 
 const INFO = [
