@@ -1,6 +1,7 @@
 // src/sections/Hero.jsx
 import { useEffect, useRef, useState } from "react";
 import { PROFILE } from "../config/profile";
+import { fetchProfile } from "../services/api";
 import "./Hero.css";
 
 // Animated counter hook
@@ -39,6 +40,18 @@ const STATS = [
 export default function Hero() {
   const heroRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState("/avatar.png");
+
+  // Fetch avatar on mount
+  useEffect(() => {
+    fetchProfile()
+      .then((data) => {
+        if (data && data.avatarUrl) {
+          setAvatarUrl(data.avatarUrl);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch profile avatar", err));
+  }, []);
 
   // Trigger animations when Hero enters viewport
   useEffect(() => {
@@ -161,7 +174,7 @@ export default function Hero() {
             <div className="hero__avatar-ring">
               <div className="hero__avatar-inner">
                 <img
-                  src="/avatar.png"
+                  src={avatarUrl}
                   alt={PROFILE.name}
                   className="hero__avatar-img"
                 />
