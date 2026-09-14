@@ -428,7 +428,9 @@ export default function Contact() {
                 </div>
               ))}
             </div>
+          </div>
 
+          <div className="contact__info-panel">
             {/* Social Links */}
             <div className="contact__socials-block">
               <div className="contact__socials-label">Find me online</div>

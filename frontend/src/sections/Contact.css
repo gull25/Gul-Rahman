@@ -52,11 +52,12 @@
 
 /* ── Main Grid ───────────────────────────── */
 .contact__grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1000px;
   margin: 0 auto;
+  align-items: start;
 }
 
 /* ── Info Panel ──────────────────────────── */
