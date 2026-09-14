@@ -484,7 +484,7 @@ export default function Contact() {
                 },
                 {
                   question: 'What type of projects do you take?',
-                  answer:   'I specialise in React and frontend work — from landing pages to complex dashboards and web applications.',
+                  answer:   'I specialize in full-stack MERN development — building robust APIs with Node/Express, scalable databases with MongoDB, and dynamic frontends with React.',
                 },
               ].map(faq => (
                 <FaqItem

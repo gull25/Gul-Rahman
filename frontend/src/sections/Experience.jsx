@@ -341,11 +341,11 @@ export default function Experience() {
                 {[
                   "React",
                   "TypeScript",
-                  "Next.js",
+                  "React.js",
                   "Redux",
                   "REST API",
-                  "Figma",
-                  "Jest",
+                  "Node.js",
+                  "Express",
                   "Git",
                 ].map((tag) => (
                   <span key={tag} className="exp__sidebar-tag">
