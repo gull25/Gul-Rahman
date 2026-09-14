@@ -225,7 +225,7 @@ export default function About() {
                 Building Digital Experiences That Matter
               </h3>
               <p className="about__bio-text">
-                I'm a frontend developer with 1+ years of experience building
+                I'm a MERN Stack Developer with 1+ years of experience building
                 production-grade web applications. I specialise in React
                 ecosystems — from component architecture to performance
                 optimisation and accessibility.

@@ -2,7 +2,7 @@
 
 export const PROFILE = {
   name: "Gul Rahman",
-  role: "Frontend Developer",
+  role: "MERN Stack Developer",
   email: "gulr83447@gmail.com",
   phone: {
     display: "+92 316 9860636",
